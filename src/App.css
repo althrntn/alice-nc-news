@@ -3,25 +3,25 @@
   background-color: antiquewhite;
 }
 
-#welcome {
-  font-family: 'Playfair Display', serif;
-  font-size: large;
-  background-color: blue;
-  color: antiquewhite;
-}
 
-#article_card {
+.article_card {
   border-style: groove;
   border: 5px bold goldenrod;
   
 
 }
-#article_button {
+.article_button {
   text-align: right;
 }
 
-#all_articles {
+.articles {
   display: grid
+}
+#welcome {
+  font-family: 'Playfair Display', serif;
+  font-size: large;
+  background-color: blue;
+  color: antiquewhite;
 }
 
 ul {

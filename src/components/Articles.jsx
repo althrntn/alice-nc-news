@@ -10,7 +10,7 @@ const Articles = () =>{
        getArticles().then((response)=> {setArticlesList(response.articles)})
 
     }, [])
-    return (<section id="all_articles">
+    return (<section className="all_articles">
           <ul>
         {articlesList.map((article) => {
           return(<ArticleCard article={article}/>)
