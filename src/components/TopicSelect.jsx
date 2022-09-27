@@ -1,14 +1,15 @@
 import { useState } from "react"
+import { createSearchParams } from "react-router-dom"
 
-const TopicSelect = ({setSelectedTopic, topicList}) => {
+const TopicSelect = ({topicList, setSearchParams}) => {
     const [topicChoice, setTopicChoice] = useState('')
 
 const handleSubmit = (event) => {
     event.preventDefault()
     if(topicChoice){
-        setSelectedTopic(topicChoice)
+        setSearchParams({topic:topicChoice})
     } else {
-        setSelectedTopic(topicList[0])
+        setSearchParams({topic:topicList[0]})
     }
     
 }
