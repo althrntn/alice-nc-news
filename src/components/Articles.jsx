@@ -5,6 +5,7 @@ import ArticleCard from "./ArticleCard"
 
 const Articles = () =>{
     const search = window.location.search;
+    const topicName = search.slice(7)
     
     const [articlesList, setArticlesList] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -12,7 +13,7 @@ const Articles = () =>{
     useEffect(()=> {
       setIsLoading(true)
        getArticles().then((response)=> { if(search) {
-        const topicName = search.slice(7)
+        
         const filteredArticles = response.articles.filter((article) => {
             return article.topic === topicName
         })
@@ -27,7 +28,7 @@ const Articles = () =>{
 
     
     return (<section className="all_articles">
-      {search? <h1>{topic}</h1>: <h1>Articles</h1>} 
+      {search? <h1>{topicName}</h1>: <h1>Articles</h1>} 
       {isLoading ? <h2>Loading results...</h2>: <h2>Results:</h2>}
           <ul>
         {articlesList.map((article) => {
