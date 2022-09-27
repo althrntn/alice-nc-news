@@ -7,21 +7,28 @@ const Articles = () =>{
     const search = window.location.search;
     
     const [articlesList, setArticlesList] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
   
     useEffect(()=> {
+      setIsLoading(true)
        getArticles().then((response)=> { if(search) {
         const topicName = search.slice(7)
         const filteredArticles = response.articles.filter((article) => {
             return article.topic === topicName
         })
         setArticlesList(filteredArticles)
+        setIsLoading(false)
     } else {
-        setArticlesList(response.articles)}})
+        setArticlesList(response.articles);
+        setIsLoading(false)
+      }})
 
     }, [search])
 
     
     return (<section className="all_articles">
+      {search? <h1>{topic}</h1>: <h1>Articles</h1>} 
+      {isLoading ? <h2>Loading results...</h2>: <h2>Results:</h2>}
           <ul>
         {articlesList.map((article) => {
           return(<ArticleCard article={article}/>)
