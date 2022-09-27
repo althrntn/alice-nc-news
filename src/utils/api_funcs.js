@@ -3,12 +3,10 @@ const articlesApi = axios.create({
   baseURL: "https://alice-nc-news.herokuapp.com/api",
 });
 
-export const getArticles = (topicName) => {
+export const getArticles = (searchParams) => {
   let queryString = "/articles";
-  if (topicName) {
-    queryString += `?topic=${topicName}`;
-  }
-  return articlesApi.get(queryString).then((res) => {
+
+  return articlesApi.get(queryString, { params: searchParams }).then((res) => {
     return res.data;
   });
 };

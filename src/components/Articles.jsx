@@ -12,7 +12,7 @@ const Articles = ({searchParams, topicList, setSearchParams}) =>{
   
     useEffect(()=> {
       setIsLoading(true)
-       getArticles(topicName).then((response)=> { 
+       getArticles(searchParams).then((response)=> { 
         setArticlesList(response.articles)
         setIsLoading(false)
       })}, [searchParams])
