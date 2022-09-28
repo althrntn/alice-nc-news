@@ -32,3 +32,11 @@ export const incVotes = (article_id, hasVoted) => {
     return res.data;
   });
 };
+
+export const getCommentsForArticle = (article_id) => {
+  console.log(article_id);
+  return articlesApi.get(`articles/${article_id}/comments`).then((res) => {
+    console.log(res.data);
+    return res.data;
+  });
+};
