@@ -21,6 +21,7 @@ const SingleArticle = () => {
  return (<section>
     {isLoading ? <h1>Loading article...</h1> : <section><h1>{selectedArticle.title}</h1>
  <h2>{selectedArticle.author}</h2>
- <p>{selectedArticle.body}</p></section>}</section>)
+ <p>{selectedArticle.body}</p></section>}
+ </section>)
 }
 export default SingleArticle
