@@ -22,3 +22,13 @@ export const getArticlebyId = (article_id) => {
     return res.data;
   });
 };
+
+export const incVotes = (article_id, hasVoted) => {
+  let body = { inc_votes: 1 };
+  if (hasVoted) {
+    body.inc_votes = -1;
+  }
+  return articlesApi.patch(`articles/${article_id}`, body).then((res) => {
+    return res.data;
+  });
+};
