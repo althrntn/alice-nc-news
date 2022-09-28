@@ -4,11 +4,13 @@ import Header from "./components/Header";
 import Articles from "./components/Articles";
 import { useEffect, useState } from "react";
 import { getTopics } from "./utils/api_funcs";
+import SingleArticle from "./components/SingleArticle";
 
 function App() {
   const navigate = useNavigate();
   const [topicList, setTopicList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams({});
+
   useEffect(() => {
     getTopics().then((response) => {
       const topics = response.map((ele) => {
@@ -17,11 +19,6 @@ function App() {
       setTopicList(topics);
     });
   }, []);
-
-  // useEffect(() => {
-  //   console.log(searchParams);
-  //   navigate(`/articles?${searchParams}`);
-  // }, [searchParams]);
 
   return (
     <div className="App">
@@ -40,6 +37,10 @@ function App() {
               />
             }
           />
+          <Route
+            path="articles/:article_id"
+            element={<SingleArticle />}
+          ></Route>
         </Routes>
       </section>
     </div>

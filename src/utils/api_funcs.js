@@ -16,3 +16,9 @@ export const getTopics = () => {
     return res.data;
   });
 };
+
+export const getArticlebyId = (article_id) => {
+  return articlesApi.get(`articles/${article_id}`).then((res) => {
+    return res.data;
+  });
+};
