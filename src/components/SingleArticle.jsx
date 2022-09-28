@@ -16,7 +16,7 @@ const SingleArticle = () => {
         setVoteCount((currVoteCount) => {
         return currVoteCount+1})
         setHasVoted(true)
-        incVotes(article_id).catch((err)=> {
+        incVotes(article_id, hasVoted).catch((err)=> {
             setVoteCount((currVoteCount) => {
                 return currVoteCount-1
             });
@@ -28,7 +28,12 @@ const SingleArticle = () => {
                 return currVoteCount-1
             })
         setHasVoted(false);
-    }
+        incVotes(article_id, hasVoted).catch((err)=> {
+            setVoteCount((currVoteCount) => {
+                return currVoteCount+1
+            });
+            setError({error:{errorMessage: 'something went wrong'}})
+    })}
  
     useEffect(()=> {
         getArticlebyId(article_id).then((response) => {setSelectedArticle(response.article); setVoteCount(response.article.votes); setIsLoading(false)}).catch((err)=> {setError({error: err.response})})
@@ -43,8 +48,9 @@ const SingleArticle = () => {
     {isLoading ? <h1>Loading article...</h1> : <section><h1>{selectedArticle.title}</h1>
  <h2>{selectedArticle.author}</h2>
  <p>{selectedArticle.body}</p></section>}
- <button onClick={()=>handleVoteClick()}>Vote</button><p>Votes: {voteCount}</p>
- {hasVoted? <button onClick={()=> {undoVote()}}>Undo vote</button>: <p></p>}
+ 
+ {hasVoted? <button onClick={()=> {undoVote()}}>Undo vote</button>: <p><button onClick={()=>handleVoteClick()}>Vote</button></p>}
+ <p>Votes: {voteCount}</p>
  </section>)
 }
 export default SingleArticle
