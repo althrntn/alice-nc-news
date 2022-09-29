@@ -4,8 +4,9 @@ import Errors from './Errors'
 import VoteForArticle from "./VoteForArticle"
 import { getArticlebyId } from "../utils/api_funcs"
 import CommentsForArticle from "./CommentsForArticle"
+import NewComment from "./NewComment"
 
-const SingleArticle = () => {
+const SingleArticle = ({user}) => {
     const [selectedArticle, setSelectedArticle] = useState({})
     const {article_id} = useParams()
     const [isLoading, setIsLoading] = useState(true)
@@ -28,6 +29,8 @@ const SingleArticle = () => {
  <p>{selectedArticle.body}</p></section>}
  <VoteForArticle article_id={article_id} voteCount={voteCount} setVoteCount={setVoteCount} hasVoted={hasVoted} setHasVoted={setHasVoted} setError={setError}/>
  <CommentsForArticle article_id={article_id}/>
+ <p></p>
+ <NewComment article_id={article_id} user={user}/>
  </section>
 )
 }

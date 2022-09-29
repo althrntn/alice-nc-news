@@ -9,6 +9,7 @@ import SingleArticle from "./components/SingleArticle";
 function App() {
   const [topicList, setTopicList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams({});
+  const [user, setUser] = useState("grumpy19");
 
   useEffect(() => {
     getTopics().then((response) => {
@@ -23,7 +24,7 @@ function App() {
     <div className="App">
       <header className="App-header"></header>
       <section>
-        <Header />
+        <Header user={user} />
 
         <Routes>
           <Route
@@ -38,7 +39,7 @@ function App() {
           />
           <Route
             path="articles/:article_id"
-            element={<SingleArticle />}
+            element={<SingleArticle user={user} />}
           ></Route>
         </Routes>
       </section>
