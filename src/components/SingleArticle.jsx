@@ -28,9 +28,9 @@ const SingleArticle = ({user}) => {
  <h2>{selectedArticle.author}</h2>
  <p>{selectedArticle.body}</p></section>}
  <VoteForArticle article_id={article_id} voteCount={voteCount} setVoteCount={setVoteCount} hasVoted={hasVoted} setHasVoted={setHasVoted} setError={setError}/>
- <CommentsForArticle article_id={article_id}/>
+  <NewComment article_id={article_id} user={user}/>
  <p></p>
- <NewComment article_id={article_id} user={user}/>
+<CommentsForArticle article_id={article_id}/>
  </section>
 )
 }
