@@ -1,21 +1,23 @@
 import { useState } from "react"
-import { createSearchParams } from "react-router-dom"
+import { extractParams } from "../utils/manipFuncs"
 
-const TopicSelect = ({topicList, setSearchParams}) => {
+const TopicSelect = ({topicList, setSearchParams, searchParams}) => {
     const [topicChoice, setTopicChoice] = useState('')
 
 const handleSubmit = (event) => {
     event.preventDefault()
+    const params = extractParams(searchParams)
     if(topicChoice){
-        setSearchParams({topic:topicChoice})
+        setSearchParams({...params, topic:topicChoice})
     } else {
-        setSearchParams({topic:topicList[0]})
+        setSearchParams({...params, topic:topicList[0]})
     }
     
 }
     return(
     <form onSubmit={(event) => handleSubmit(event)}>
-    <select onChange={(e) => setTopicChoice(e.target.value)}>
+        <label htmlFor="topic_choice">Topic</label>
+    <select id="topic_choice" onChange={(e) => setTopicChoice(e.target.value)}>
             {topicList.map((topicItem) => {
               return <option key={topicItem}>{topicItem}</option>;
             })}
