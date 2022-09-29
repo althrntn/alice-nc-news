@@ -34,9 +34,15 @@ export const incVotes = (article_id, hasVoted) => {
 };
 
 export const getCommentsForArticle = (article_id) => {
-  console.log(article_id);
   return articlesApi.get(`articles/${article_id}/comments`).then((res) => {
-    console.log(res.data);
     return res.data;
   });
+};
+
+export const postCommentForArticle = (article_id, comment) => {
+  return articlesApi
+    .post(`articles/${article_id}/comments`, comment)
+    .then((res) => {
+      return res.data;
+    });
 };
