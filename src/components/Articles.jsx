@@ -13,7 +13,6 @@ const Articles = ({searchParams, topicList, setSearchParams}) =>{
   
     useEffect(()=> {
       setIsLoading(true)
-        console.log(searchParams.get('topic'), searchParams.get('sort_by'))
        getArticles(searchParams).then((response)=> { 
         setArticlesList(response.articles)
         setIsLoading(false)
