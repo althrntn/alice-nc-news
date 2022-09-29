@@ -7,11 +7,11 @@
 .article_card {
   border-style: groove;
   border: 5px bold goldenrod;
-  
-
 }
-.article_button {
-  text-align: right;
+
+.comment_card{
+  border-style: groove;
+  border: 5px bold goldenrod;
 }
 
 .articles {
@@ -35,6 +35,7 @@ li {
 }
 
 .article_button {
+  text-align: right;
   position: absolute;
     right: 1000px;
     bottom: 0;
