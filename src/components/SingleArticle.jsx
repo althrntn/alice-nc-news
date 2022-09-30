@@ -7,6 +7,7 @@ import CommentsForArticle from "./CommentsForArticle"
 import NewComment from "./NewComment"
 
 const SingleArticle = ({user}) => {
+    
     const [selectedArticle, setSelectedArticle] = useState({})
     const {article_id} = useParams()
     const [isLoading, setIsLoading] = useState(true)
@@ -28,9 +29,9 @@ const SingleArticle = ({user}) => {
  <h2>{selectedArticle.author}</h2>
  <p className='core_content'>{selectedArticle.body}</p></section>}
  <VoteForArticle article_id={article_id} voteCount={voteCount} setVoteCount={setVoteCount} hasVoted={hasVoted} setHasVoted={setHasVoted} setError={setError}/>
-  <NewComment article_id={article_id} user={user} className='comment_element'/>
+  <NewComment article_id={article_id} className='comment_element'/>
  <p></p>
-<CommentsForArticle article_id={article_id} user={user} className='comment_element'/>
+<CommentsForArticle article_id={article_id} className='comment_element'/>
  </section>
 )
 }

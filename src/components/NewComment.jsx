@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
+import { UserContext} from "../contexts/User"
 import { postCommentForArticle } from "../utils/api_funcs"
 import CommentCard from "./CommentCard"
 import Errors from "./Errors"
 
-const NewComment = ({article_id, user})=>{
+const NewComment = ({article_id})=>{
+    const [user, setUser] = useContext(UserContext)
     const [newComment, setNewComment] = useState({})
      const [newCommentBody, setNewCommentBody] = useState('')
      const [error, setError] = useState(null)

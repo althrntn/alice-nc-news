@@ -7,6 +7,7 @@ import { getTopics } from "./utils/api_funcs";
 import SingleArticle from "./components/SingleArticle";
 import Errors from "./components/Errors";
 import Home from "./components/Home";
+import { UserContext } from "./contexts/User";
 
 function App() {
   const [topicList, setTopicList] = useState([]);
@@ -23,31 +24,33 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header"></header>
-      <section>
-        <Header user={user} />
+    <UserContext.Provider value={{ user, setUser }}>
+      <div className="App">
+        <header className="App-header"></header>
+        <section>
+          <Header user={user} />
 
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route
-            path="/articles"
-            element={
-              <Articles
-                searchParams={searchParams}
-                topicList={topicList}
-                setSearchParams={setSearchParams}
-              />
-            }
-          />
-          <Route
-            path="articles/:article_id"
-            element={<SingleArticle user={user} />}
-          ></Route>
-          <Route path="*" element={<Errors />}></Route>
-        </Routes>
-      </section>
-    </div>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route
+              path="/articles"
+              element={
+                <Articles
+                  searchParams={searchParams}
+                  topicList={topicList}
+                  setSearchParams={setSearchParams}
+                />
+              }
+            />
+            <Route
+              path="articles/:article_id"
+              element={<SingleArticle />}
+            ></Route>
+            <Route path="*" element={<Errors />}></Route>
+          </Routes>
+        </section>
+      </div>
+    </UserContext.Provider>
   );
 }
 
