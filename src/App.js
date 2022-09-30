@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { getTopics } from "./utils/api_funcs";
 import SingleArticle from "./components/SingleArticle";
 import Errors from "./components/Errors";
+import Home from "./components/Home";
 
 function App() {
   const [topicList, setTopicList] = useState([]);
@@ -28,6 +29,7 @@ function App() {
         <Header user={user} />
 
         <Routes>
+          <Route path="/" element={<Home />}></Route>
           <Route
             path="/articles"
             element={

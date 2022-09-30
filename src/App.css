@@ -1,42 +1,131 @@
 .App {
   text-align: center;
-  background-color: antiquewhite;
+  color: #19323C;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
 }
 
+.header{ 
+  color: #19323C;
+}
+.home{ 
+  text-align: left;
+}
+.subheading{
+  font-size: 40px;
 
+}
 .article_card {
   border-style: groove;
-  border: 5px bold goldenrod;
+  border-color: #6B9080;
+  padding: 5px;
+  display: inline-block;
 }
 
 .comment_card{
   border-style: groove;
-  border: 5px bold goldenrod;
+  color: #19323C;
+}
+.dropdown {
+  border: 5px;
+  margin-left: 20px
 }
 
 .articles {
   display: grid
 }
-#welcome {
-  font-family: 'Playfair Display', serif;
-  font-size: large;
-  background-color: blue;
-  color: antiquewhite;
+.core_content {
+  text-align: left;
+  font-size: 20px
 }
+.menu_item{
+  margin: 30px;
+  border-style: outset;
+  border-width: 8px;
+  display: inline-block;
+  
+}
+.error{
+  background-color: #d87387;
+  font-size: 20px;
+}
+.success_message {
+  background-color: #90ADA1;
 
+}
+.comment_element {
+  text-align: left;
+}
+a {
+  background-color: #6B9080;
+  color: #19323C;
+  text-decoration: none;
+  font-size: 40px;
+  border-style: double;
+  border-color: #6B9080;
+}
 ul {
   list-style-type: none;
   text-align: left;
+  color: #19323C;
 
-}    
-
-li {
-  position: relative
 }
 
-.article_button {
+li {
+  position: relative;
+  color: #19323C;
+}
+
+button {
+  text-align: center;
+  color: #19323C;
+  background-color:#90ADA1;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: 300;
+  font-family: 'Playfair Display', serif;
+  display: inline-block;
+}
+
+label {
+  font-size: 20px;
+  font-weight:bold
+}
+
+#welcome {
+  font-family: 'Playfair Display', serif;
+  font-size: 75px;
+  background-color: #B33951;
+  color: antiquewhite;
+}
+
+#user_status {
   text-align: right;
-  position: absolute;
-    right: 1000px;
-    bottom: 0;
+  font-size: 20px;
+  color: #19323C;
+}
+
+#top_stories {
+  font-size: 40px;
+  color: #19323C;
+}
+#topic_choice {
+margin-left: 10px;
+margin-right: 10px;
+font-size: 20px;
+font-family: 'Playfair Display', serif;
+}
+#sort_by {
+  margin-left: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+}
+#order {
+  margin-left: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+}
+#comment_body {
+  width: 500px;
+    height: 300px;
 }

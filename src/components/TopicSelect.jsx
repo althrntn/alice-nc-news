@@ -15,8 +15,8 @@ const handleSubmit = (event) => {
     
 }
     return(
-    <form onSubmit={(event) => handleSubmit(event)}>
-        <label htmlFor="topic_choice">Topic</label>
+    <form className='dropdown' onSubmit={(event) => handleSubmit(event)}>
+        <label htmlFor="topic_choice" >Topic</label>
     <select id="topic_choice" onChange={(e) => setTopicChoice(e.target.value)}>
             {topicList.map((topicItem) => {
               return <option key={topicItem}>{topicItem}</option>;

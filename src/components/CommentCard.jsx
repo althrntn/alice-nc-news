@@ -13,11 +13,11 @@ const CommentCard = ({comment, user})=> {
     }
 
     return (<section className='comment_card'>
-         {deleteComplete? <p>comment removed</p>: <div><p>"{comment.body}"</p>
+         {deleteComplete? <p className='success_message'>Comment removed</p>: <div><p>"{comment.body}"</p>
     <p>-{comment.author}</p>
     {user===comment.author? <button onClick={()=> handleClick()}>remove</button>: <p></p>}</div>}
         
-    {removeComment? <p>removing comment</p>:<p></p>}
+    {removeComment? <p>Removing comment</p>:<p></p>}
    
         </section>)
     

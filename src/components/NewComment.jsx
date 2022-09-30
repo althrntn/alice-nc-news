@@ -22,13 +22,13 @@ const NewComment = ({article_id, user})=>{
         if(newComment.body){
             setIsSubmitting(true)
             postCommentForArticle(article_id, newComment).then((response)=>{
-        setPostedComment(response.comment); setNewCommentBody (''); setIsSubmitting(false)
+        setPostedComment(response.comment); setNewCommentBody (''); setIsSubmitting(false); setError(null)
         })}
        
     }, [newComment])
 
 
-return (<section><form id="new_comment" onSubmit={(e)=>{handleSubmit(e)}}>
+return (<section className='comment_element'><form id="new_comment" onSubmit={(e)=>{handleSubmit(e)}}>
     <label htmlFor="comment_body">Comment</label>
     <p></p>
     <textarea id="comment_body" value={newCommentBody} onChange={(e)=>setNewCommentBody(e.target.value)}></textarea>

@@ -19,7 +19,7 @@ const CommentsForArticle = ({article_id, user}) => {
     },[viewComments])
 
     
-    return (<section>
+    return (<section className='comment_element'>
 {viewComments ? <section><button onClick={()=>{handleCommentClick()}}>Hide Comments</button> <ul>
     {comments.map((comment) => {
     return (

@@ -23,14 +23,14 @@ const SingleArticle = ({user}) => {
     }
 
 
- return (<section>
-    {isLoading ? <h1>Loading article...</h1> : <section><h1>{selectedArticle.title}</h1>
+ return (<section className="article_card">
+    {isLoading ? <h1>Loading article...</h1> : <section><h1 className="subheading">{selectedArticle.title}</h1>
  <h2>{selectedArticle.author}</h2>
- <p>{selectedArticle.body}</p></section>}
+ <p className='core_content'>{selectedArticle.body}</p></section>}
  <VoteForArticle article_id={article_id} voteCount={voteCount} setVoteCount={setVoteCount} hasVoted={hasVoted} setHasVoted={setHasVoted} setError={setError}/>
-  <NewComment article_id={article_id} user={user}/>
+  <NewComment article_id={article_id} user={user} className='comment_element'/>
  <p></p>
-<CommentsForArticle article_id={article_id} user={user}/>
+<CommentsForArticle article_id={article_id} user={user} className='comment_element'/>
  </section>
 )
 }

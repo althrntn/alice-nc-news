@@ -30,7 +30,7 @@ const Articles = ({searchParams, topicList, setSearchParams}) =>{
               />
               <p></p>
       <SortButtons searchParams={searchParams} setSearchParams={setSearchParams}/>
-      {searchParams? <h1>{topicName}</h1>: <h1>Articles</h1>} 
+      {searchParams? <h1 className='subheading'>{topicName}</h1>: <h1>Articles</h1>} 
       {isLoading ? <h2>Loading results...</h2>: <h2>Results:</h2>}
           <ul>
         {articlesList.map((article) => {
