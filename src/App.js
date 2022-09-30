@@ -8,6 +8,7 @@ import SingleArticle from "./components/SingleArticle";
 import Errors from "./components/Errors";
 import Home from "./components/Home";
 import { UserContext } from "./contexts/User";
+import Users from "./components/Users";
 
 function App() {
   const [topicList, setTopicList] = useState([]);
@@ -42,6 +43,7 @@ function App() {
                 />
               }
             />
+            <Route path="/users" element={<Users />}></Route>
             <Route
               path="articles/:article_id"
               element={<SingleArticle />}
