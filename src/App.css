@@ -5,9 +5,6 @@
   font-size: 20px;
 }
 
-.header{ 
-  color: #19323C;
-}
 .home{ 
   text-align: left;
 }
@@ -24,7 +21,6 @@
 
 .comment_card{
   border-style: groove;
-  color: #19323C;
 }
 .dropdown {
   border: 5px;
@@ -36,7 +32,8 @@
 }
 .core_content {
   text-align: left;
-  font-size: 20px
+  font-size: 20px;
+  display: inline-block;
 }
 .menu_item{
   margin: 30px;
