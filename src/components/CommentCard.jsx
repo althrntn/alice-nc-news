@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import {useState } from "react"
 import { deleteComment } from "../utils/api_funcs"
 
 const CommentCard = ({comment, user})=> {
@@ -7,16 +7,10 @@ const CommentCard = ({comment, user})=> {
 
     const handleClick = () => {
         setRemoveComment(true)
-    }
-
-    useEffect(() => {
-        if (removeComment) {
             deleteComment(comment.comment_id).then(()=> {
                 setDeleteComplete(true); setRemoveComment(false)
             })
-        }
-    }, [removeComment])
-
+    }
 
     return (<section className='comment_card'>
          {deleteComplete? <p>comment removed</p>: <div><p>"{comment.body}"</p>
