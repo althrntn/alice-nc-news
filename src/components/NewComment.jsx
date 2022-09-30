@@ -5,7 +5,7 @@ import CommentCard from "./CommentCard"
 import Errors from "./Errors"
 
 const NewComment = ({article_id})=>{
-    const [user, setUser] = useContext(UserContext)
+    const {user, setUser} = useContext(UserContext)
     const [newComment, setNewComment] = useState({})
      const [newCommentBody, setNewCommentBody] = useState('')
      const [error, setError] = useState(null)

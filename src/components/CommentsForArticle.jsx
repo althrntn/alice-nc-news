@@ -4,7 +4,7 @@ import { UserContext} from "../contexts/User"
 import CommentCard from './CommentCard'
 
 const CommentsForArticle = ({article_id}) => {
-     const [user, setUser] = useContext(UserContext)
+     const {user, setUser} = useContext(UserContext)
     const [comments, setComments] = useState([])
     const [viewComments, setViewComments] = useState(false)
 
