@@ -5,6 +5,7 @@ import Articles from "./components/Articles";
 import { useEffect, useState } from "react";
 import { getTopics } from "./utils/api_funcs";
 import SingleArticle from "./components/SingleArticle";
+import Errors from "./components/Errors";
 
 function App() {
   const [topicList, setTopicList] = useState([]);
@@ -41,6 +42,7 @@ function App() {
             path="articles/:article_id"
             element={<SingleArticle user={user} />}
           ></Route>
+          <Route path="*" element={<Errors />}></Route>
         </Routes>
       </section>
     </div>

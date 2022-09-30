@@ -4,11 +4,13 @@ import {getArticles} from '../utils/api_funcs'
 import ArticleCard from "./ArticleCard"
 import TopicSelect from "./TopicSelect"
 import SortButtons from './SortButtons'
+import Errors from "./Errors"
 
 const Articles = ({searchParams, topicList, setSearchParams}) =>{
     const topicName = searchParams.get('topic')
     const [articlesList, setArticlesList] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState(null)
     
   
     useEffect(()=> {
@@ -16,7 +18,7 @@ const Articles = ({searchParams, topicList, setSearchParams}) =>{
        getArticles(searchParams).then((response)=> { 
         setArticlesList(response.articles)
         setIsLoading(false)
-      })}, [searchParams])
+      }).catch((err)=> {console.log(err.response.data.msg); setError({error: err.response})})}, [searchParams])
 
 
     
@@ -35,6 +37,7 @@ const Articles = ({searchParams, topicList, setSearchParams}) =>{
           return(<li key={article.article_id} className="article_card"><ArticleCard article={article}/></li>)
         })}
           </ul>
+          {error? <Errors error={error}/>: <p></p>}
     </section>)
 }
 export default Articles
