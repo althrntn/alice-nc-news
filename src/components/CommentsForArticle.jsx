@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getCommentsForArticle } from "../utils/api_funcs"
 import CommentCard from './CommentCard'
 
-const CommentsForArticle = ({article_id}) => {
+const CommentsForArticle = ({article_id, user}) => {
     const [comments, setComments] = useState([])
     const [viewComments, setViewComments] = useState(false)
 
@@ -24,7 +24,7 @@ const CommentsForArticle = ({article_id}) => {
     {comments.map((comment) => {
     return (
         <li key={comment.comment_id}>
-        <CommentCard comment={comment}/>
+        <CommentCard comment={comment} user={user}/>
         </li>
     )   
     })}</ul></section> : <section><button onClick={()=>{handleCommentClick()}}>View Comments</button></section>}

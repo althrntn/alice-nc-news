@@ -30,7 +30,7 @@ const SingleArticle = ({user}) => {
  <VoteForArticle article_id={article_id} voteCount={voteCount} setVoteCount={setVoteCount} hasVoted={hasVoted} setHasVoted={setHasVoted} setError={setError}/>
   <NewComment article_id={article_id} user={user}/>
  <p></p>
-<CommentsForArticle article_id={article_id}/>
+<CommentsForArticle article_id={article_id} user={user}/>
  </section>
 )
 }
