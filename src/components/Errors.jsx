@@ -2,8 +2,8 @@ const Errors = ({error}) => {
     if(!error){
         return <p>Page not found</p>
     }
-    if(error.error.msg) {
-        return (<p>Error: {error.error.msg}</p>)
+    if(error.msg) {
+        return (<p>Error: {error.msg}</p>)
     }
     
     const errorCode = error.error.status

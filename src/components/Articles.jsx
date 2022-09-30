@@ -18,7 +18,7 @@ const Articles = ({searchParams, topicList, setSearchParams}) =>{
        getArticles(searchParams).then((response)=> { 
         setArticlesList(response.articles)
         setIsLoading(false)
-      }).catch((err)=> {console.log(err.response.data.msg); setError({error: err.response})})}, [searchParams])
+      }).catch((err)=> {setError({error: err.response})})}, [searchParams])
 
 
     
